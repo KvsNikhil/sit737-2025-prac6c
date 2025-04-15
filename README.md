@@ -11,16 +11,27 @@ The microservice runs on Node.js and requires npm to install dependencies. It us
    npm init -y
    ```
 
-4) Install Express.js for backend routing and Winston for logging:
-   ```sh
-   npm install express Winston
-   ```
+4) Clone 5.1p from github 
+git clone https://github.com/KvsNikhil/sit737-2025-prac5p.git 
 
-5) Now create `server.js` file which will work as API with a frontend HTML file, `index.html`, within `public` directory with the given codes.
+5) Create two yaml files
+   deployment.yaml & service.yaml
+   
+6) Getting pods and kubectl services
 
-6) Run the Microservice:
-   ```sh
-   node server.js
-   ```
+kubectl get pods
+kubectl get services
 
-7) Access `http://localhost:3000` in a browser.
+7) kubectl port-forward command to forward traffic from a local port to the Kubernetes service
+
+   kubectl port-forward svc/calculator-service 3000:80
+
+8) Creating new docker image
+   docker build -t <image_name>
+
+9) Run the application
+   kubectl get pods
+   kubectl get svc calculator-service
+   kubectl port-forward svc/calculator-service 8080:80
+
+10) Access `http://localhost:8080` in a browser.
